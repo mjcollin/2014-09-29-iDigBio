@@ -7,7 +7,7 @@ Setup
 1. Install Firefox
 2. Install the SQLite Manager add on **Tools -> Add-ons -> Search -> SQLite
 Manager -> Install -> Restart**
-3. Download the [Portal Database](https://github.com/datacarpentry/datacarpentry/tree/master/lessons/sql/portal_mammals.sqlite)
+3. Download the [Portal Database](https://github.com/datacarpentry/2014-09-29-iDigBio/blob/master/data/biology/portal_mammals.sqlite?raw=true)
 4. Open SQLite Manage **Firefox Button -> Web Developer -> SQLite Manager**
 
 
@@ -128,7 +128,7 @@ and appended to that row, in a new column.  Expressions can use any fields, any
 arithmetic operators (+ - * /) and a variety of built-in functions (). For
 example, we could round the values to make them easier to read.
 
-    SELECT plot, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
+    SELECT plot_id, species, sex, wgt, ROUND(wgt / 1000.0, 2) FROM surveys;
 
 ***EXERCISE: Write a query that returns
              The year, month, day, speciesID and weight in mg***
@@ -165,7 +165,7 @@ which have species codes DM, DO, and DS we could combine the tests using OR:
 
 ***EXERCISE: Write a query that returns
    The day, month, year, species ID, and weight (in kg) for
-   individuals caught on Plot 1 that weigh more than 75 g***
+   individuals caught on Plot 01f5316e-7875-47a2-9ebe-088ae7239d4f that weigh more than 75 g***
 
 
 Saving & Exporting queries
@@ -344,7 +344,7 @@ could do something like
     SELECT plots.plot_type, AVG(surveys.wgt)
     FROM surveys
     JOIN plots
-    ON surveys.plot = plots.plot_id
+    ON surveys.plot_id = plots.plot_id
     GROUP BY plots.plot_type
 
 
